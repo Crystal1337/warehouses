@@ -1,4 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using WarehousesAPI.Entities;
 
 namespace WarehousesAPI.Data
 {
@@ -7,6 +8,7 @@ namespace WarehousesAPI.Data
         public DataContext(DbContextOptions options) : base(options)
         {
         }
-
+        
+        public DbSet<Car> Cars {get; set; }
     }
 }
