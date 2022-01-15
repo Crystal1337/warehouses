@@ -6,7 +6,7 @@ using WarehousesAPI.DTOs;
 
 namespace WarehousesAPI.Entities
 {
-    public class Car
+    public class Vehicle
     {
         public int Id { get; set; }
         public string? Make { get; set; }
