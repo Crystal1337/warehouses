@@ -1,0 +1,21 @@
+.navbar{
+    background: linear-gradient(to bottom, #202020, #111119);
+    margin-right: auto;
+    margin-left: auto;
+    width: 100%;
+    max-width: 67.5em;
+}
+
+.navbar *{
+    color: aliceblue;
+}
+
+.nav-wrapper{
+    background: linear-gradient(to bottom, #202020, #111119);
+    height: 56px;
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+    z-index: 1030;
+}

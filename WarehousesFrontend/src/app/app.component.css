@@ -1,0 +1,19 @@
+.body-wrapper{
+    background: linear-gradient(to bottom, #202020, #111119);
+    min-height: 1080px;
+    background-size:cover;
+    color: aliceblue;
+    margin-top: 56px;
+    overflow-x: hidden;
+    overflow-y: hidden;
+}
+
+.body-wrapper{
+    font-family: 'Source Sans Pro', sans-serif;
+}
+
+::ng-deep body.loading{
+    overflow-x: hidden;
+    overflow-y: hidden;
+}
+

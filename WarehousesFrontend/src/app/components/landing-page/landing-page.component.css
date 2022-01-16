@@ -1,0 +1,44 @@
+.body-spacing{
+    display: block;
+    margin-right: auto;
+    margin-left: auto;
+    width: 100%;
+    max-width: 67.5em;
+}
+
+hr{
+    border-color:white;
+}
+
+.marcedes-img{
+    position: absolute;
+    margin: auto;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: url('/assets/images/Mercedes.png');
+    background-size:contain;
+    background-repeat: no-repeat;
+    margin-right: 20px;
+}
+
+.engineer-img{
+    height: 100%;
+    width: 100%;
+    background-image: url('/assets/images/Engineer.png');
+    background-size:contain;
+    background-repeat: no-repeat;
+}
+
+@media only screen and (max-width: 960px) {
+    .marcedes-img{
+        display:none;
+    }
+  }
+  @media only screen and (max-width: 767px) {
+    .engineer-img{
+        margin-bottom: 200px;
+        background-position-x: center;
+    }
+  }

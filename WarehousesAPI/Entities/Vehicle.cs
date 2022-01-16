@@ -19,6 +19,7 @@ namespace WarehousesAPI.Entities
         public CarDTO toDTO()
         {
             return new CarDTO{
+                Id = this.Id,
                 Make = this.Make,
                 Model = this.Model,
                 Year = this.Year,

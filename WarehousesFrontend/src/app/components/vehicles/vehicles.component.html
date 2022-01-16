@@ -1,0 +1,29 @@
+<div *ngIf="!vehicles">
+    <app-loading-screen text="vehicles list"></app-loading-screen>
+</div>
+<div class="body-spacing">
+    <table *ngIf="vehicles">
+        <thead>
+            <tr>
+                <th>Make</th>
+                <th>Make</th>
+                <th>Make</th>
+                <th>Make</th>
+                <th>Make</th>
+                <th>Make</th>
+                <th>Make</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let vehicle of vehicles">
+                <td>{{ vehicle.id }}</td>
+                <td>{{ vehicle.make }}</td>
+                <td>{{ vehicle.model }}</td>
+                <td>{{ vehicle.year }}</td>
+                <td>{{ vehicle.price }}</td>
+                <td>{{ vehicle.licensed }}</td>
+                <td>{{ vehicle.date_Added }}</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
