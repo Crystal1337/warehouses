@@ -12,6 +12,7 @@ import { LandingPageComponent } from './components/landing-page/landing-page.com
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { VehiclesComponent } from './components/vehicles/vehicles.component';
 import { LoadingScreenComponent } from './components/loading-screen/loading-screen.component';
+import { VehiclesItemComponent } from './components/vehicles-item/vehicles-item.component';
 
 const appRoutes: Routes = [
   {path: '', component: LandingPageComponent},
@@ -25,6 +26,7 @@ const appRoutes: Routes = [
     LandingPageComponent,
     VehiclesComponent,
     LoadingScreenComponent,
+    VehiclesItemComponent,
   ],
   imports: [
     BrowserModule, 

@@ -1,0 +1,48 @@
+       <div class="card" *ngIf="vehicle">
+            <div class="card-body">
+                <div class="card-heading">
+                    <h5 class="card-title">{{vehicle.make}} {{vehicle.model}}</h5> <h5 class="card-price">{{vehicle.price}}$</h5>
+                </div>
+              <div class="row">
+                  <div class="col-6 additional-section">
+                    <h6 class="card-subtitle mb-2 text-muted">{{vehicle.year}}</h6>
+                    <p class="additional-info">Date added - {{vehicle.date_Added}}</p>
+                    <p class="additional-info">potential</p>
+                    <p class="additional-info">potential</p>
+                    <p class="additional-info">potential</p>
+                    <p class="additional-info">potential</p>
+                    <p class="additional-info">potential</p>
+                  </div>
+                  <div class="col-6 car-image">
+                    <div class="mercedes-img"></div>
+                  </div>
+              </div>
+            </div>
+          </div>
+  
+    
+
+<!-- <table *ngIf="vehicle">
+    <thead>
+        <tr>
+            <th>Make</th>
+            <th>Make</th>
+            <th>Make</th>
+            <th>Make</th>
+            <th>Make</th>
+            <th>Make</th>
+            <th>Make</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>{{ vehicle.id }}</td>
+            <td>{{ vehicle.make }}</td>
+            <td>{{ vehicle.model }}</td>
+            <td>{{ vehicle.year }}</td>
+            <td>{{ vehicle.price }}</td>
+            <td>{{ vehicle.licensed }}</td>
+            <td>{{ vehicle.date_Added }}</td>
+        </tr>
+    </tbody>
+</table> -->

@@ -1,0 +1,71 @@
+.card-heading{
+    margin-bottom: 10px
+}
+
+.card-title{
+    display:inline;
+    margin-right: 20px;
+}
+
+.card-price{
+    display:inline;
+    float: right;
+}
+
+.card-text{
+    max-width: 18rem;
+}
+
+.card *{
+    background-color:honeydew;
+    color:black;
+}
+
+.mercedes-img{
+    background-image: url('/assets/images/Mercedes.png');
+    background-size:contain;
+    background-repeat: no-repeat;
+    height: 100px;
+    width: 100%;
+    background-position: right;
+}
+
+.card{
+    width: 47%;
+    margin-right: 10px;
+    margin-top: 10px;
+    display: inline-block;
+}
+
+.additional-info{
+    margin-bottom: 0px;
+}
+
+.car-image{
+    align-self: center;
+}
+
+@media only screen and (max-width: 850px) {
+    .card{
+        margin: auto;
+        display: block;
+        width: 80%;
+        margin-top: 10px;
+    }
+}
+
+@media only screen and (max-width: 576px) {
+    .mercedes-img{
+        display: none;
+    }
+    .card-title{
+        display: block;
+    }
+    .card-price{
+        float:none;
+        margin-bottom:5px;
+    }
+    .additional-section{
+        min-width: 100%;
+    }
+}

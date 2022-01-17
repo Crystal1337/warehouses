@@ -22,4 +22,8 @@ describe('LoadingScreenComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
+  it('should contain string of Loading', () => {
+    expect(component).toContain('Loading');
+  });
 });
