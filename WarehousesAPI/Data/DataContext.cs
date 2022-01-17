@@ -9,9 +9,9 @@ namespace WarehousesAPI.Data
         {
         }
         
-        public DbSet<Vehicle> Vehicles {get; set; }
-        public DbSet<Cars> Cars {get; set; }
-        public DbSet<Location> Locations {get; set; }
-        public DbSet<Warehouse> Warehouses {get; set; }
+        public DbSet<Vehicle>? Vehicles {get; set; }
+        public DbSet<Cars>? Cars {get; set; }
+        public DbSet<Location>? Locations {get; set; }
+        public DbSet<Warehouse>? Warehouses {get; set; }
     }
 }

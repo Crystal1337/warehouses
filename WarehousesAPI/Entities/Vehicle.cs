@@ -16,9 +16,9 @@ namespace WarehousesAPI.Entities
         public bool Licensed { get; set; }
         public string? Date_Added { get; set; }
 
-        public CarDTO toDTO()
+        public VehicleDTO toDTO()
         {
-            return new CarDTO{
+            return new VehicleDTO{
                 Id = this.Id,
                 Make = this.Make,
                 Model = this.Model,

@@ -17,18 +17,18 @@ namespace WarehousesAPI.Controllers
 {
     [ApiController]
     [Route("api/[controller]")]
-    public class VehiclesController : Controller
+    public class WarehousesController : Controller
     {
         private readonly DataContext _context;
-        public VehiclesController(DataContext context)
+        public WarehousesController(DataContext context)
         {
             _context = context;
         }
-        [ApiKeyAuth]
+        // [ApiKeyAuth]
         [HttpGet]
-        public async Task<ActionResult<List<CarDTO>>> GetCars()
+        public async Task<ActionResult<List<Warehouse>>> GetWarehouses()
         {
-            return await _context.Vehicles.Select(e => e.toDTO()).ToListAsync();
+            return await _context.Warehouses.Include(e => e.cars).Include(e => e.cars.Vehicles).Include(e => e.Location).ToListAsync();
         }
 
         //helper function - not needed in final project
