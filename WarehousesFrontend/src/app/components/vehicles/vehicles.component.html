@@ -1,10 +1,24 @@
-<div *ngIf="!vehicles">
+<div *ngIf="detailed.length == 0">
     <app-loading-screen text="vehicles list"></app-loading-screen>
 </div>
 <div class="body-spacing">
         <app-vehicles-item
-        *ngFor="let vehicle of vehicles" [vehicle]="vehicle"
+        *ngFor="let details of detailed" [vehicle]="details.vehicle" [warehouse]="details.warehouse"
+        (onClickVehicle)="openModal(template, details.vehicle, details.warehouse)"
         >
-</app-vehicles-item> 
-    
+    </app-vehicles-item> 
+        
+
+
+<ng-template #template>
+    <div class="modal-header">
+      <h4 class="modal-title pull-left">Modal</h4>
+      <button type="button" class="btn-close close pull-right" aria-label="Close" (click)="modalRef?.hide()">
+        <span aria-hidden="true" class="visually-hidden">&times;</span>
+      </button>
+    </div>
+    <div class="modal-body">
+      This is a modal.
+    </div>
+  </ng-template>
 </div>

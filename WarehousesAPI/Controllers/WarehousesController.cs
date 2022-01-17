@@ -28,11 +28,21 @@ namespace WarehousesAPI.Controllers
         [HttpGet]
         public async Task<ActionResult<List<Warehouse>>> GetWarehouses()
         {
-            return await _context.Warehouses.Include(e => e.cars).Include(e => e.cars.Vehicles).Include(e => e.Location).ToListAsync();
+            return await _context.Warehouses
+            .Include(e => e.cars)
+            .Include(e => e.Location) 
+            .Include(e => e.cars.Vehicles)
+            .ToListAsync();
+
+            // return await _context.Warehouses 
+            // .Include(e=> e.cars)
+            // .Include(e => e.Location) 
+            // .Include(e => e.cars.Vehicles)
+            // .Where(e=> e.cars.Vehicles.Any(e=> e.Id == 1)).ToListAsync();
         }
 
         //helper function - not needed in final project
-        [ApiKeyAuth]
+        
         [Route("jsonFillTables")]
         [HttpGet]
         public void FillTablesFromJSON()

@@ -50,6 +50,18 @@
     align-self: center;
 }
 
+button.disabled{
+    background-color:lightgrey!important;
+    border-color: lightgray;
+    cursor: default;
+}
+
+button{
+    background-color:greenyellow!important;
+    border-color: greenyellow;
+    margin-top:15px;
+}
+
 @media only screen and (max-width: 850px) {
     .card{
         margin: auto;

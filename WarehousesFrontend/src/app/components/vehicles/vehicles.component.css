@@ -5,3 +5,17 @@
     width: 100%;
     max-width: 67.5em;
 }
+
+.mercedes-img{
+    background-image: url('/assets/images/Mercedes.png');
+    background-size:contain;
+    background-repeat: no-repeat;
+    height: 100px;
+    width: 100%;
+    background-position: right;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+}
