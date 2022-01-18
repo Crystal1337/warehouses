@@ -15,6 +15,8 @@ import { VehiclesComponent } from './components/vehicles/vehicles.component';
 import { LoadingScreenComponent } from './components/loading-screen/loading-screen.component';
 import { VehiclesItemComponent } from './components/vehicles-item/vehicles-item.component';
 import { CheckoutComponent } from './components/checkout/checkout.component';
+import { CheckoutListComponent } from './components/checkout-list/checkout-list.component';
+import { CheckoutItemComponent } from './components/checkout-item/checkout-item.component';
 
 const appRoutes: Routes = [
   {path: '', component: LandingPageComponent},
@@ -31,6 +33,8 @@ const appRoutes: Routes = [
     LoadingScreenComponent,
     VehiclesItemComponent,
     CheckoutComponent,
+    CheckoutListComponent,
+    CheckoutItemComponent,
   ],
   imports: [
     BrowserModule, 

@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { faShoppingBasket } from '@fortawesome/free-solid-svg-icons';
-import { Vehicle } from 'src/app/models/Vehicle';
 import { ShoppingCartService } from 'src/app/services/shopping-cart.service';
-import { Router } from '@angular/router'; 
+import { Router } from '@angular/router';
+import { Cart } from 'src/app/models/Cart';
 
 @Component({
   selector: 'app-header',
@@ -20,17 +20,11 @@ export class HeaderComponent implements OnInit {
       this.cart = this.cartService.getCart();
   }
 
-  redirect() {
+  redirectToCheckout() {
     location.href="checkout";
   }
 
   hasRoute(route: string) {
     return this.router.url === route;
   }
-
-}
-
-interface Cart {
-  vehicles: Vehicle[];
-  amount: number;
 }

@@ -1,35 +1,28 @@
-import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Component, EventEmitter, Input, OnInit, Output, TemplateRef } from '@angular/core';
 import { Vehicle } from 'src/app/models/Vehicle';
-import { environment } from 'src/environments/environment';
-import { filter } from 'rxjs/operators';
-import { pipe } from 'rxjs';
-import { map } from 'rxjs/operators';
 import { VehicleService } from 'src/app/services/vehicle.service';
 import { Warehouse } from 'src/app/models/Warehouse';
-import { Cars } from 'src/app/models/Cars';
 import { BsModalService, BsModalRef, ModalOptions } from 'ngx-bootstrap/modal';
 import { VehicleDetailed } from 'src/app/models/VehicleDetailed';
 import { ShoppingCartService } from 'src/app/services/shopping-cart.service';
 import { Router } from '@angular/router';
+
 @Component({
   selector: 'app-vehicles',
   templateUrl: './vehicles.component.html',
   styleUrls: ['./vehicles.component.css']
 })
 
-
-
 export class VehiclesComponent implements OnInit {
   modalRef?: BsModalRef;
   detailed: VehicleDetailed[] = [];
-  cart: Vehicle[] = [];
 
   constructor(private vehicleService: VehicleService, private modalService: BsModalService, private cartService: ShoppingCartService, private router: Router) { 
     
   }
-
+  
   ngOnInit(): void {
+    //get all vehicles + adequate warehouse the vehicle is in
       this.vehicleService.getVehicles().subscribe(result => {
         result.forEach(warehouse => {
           warehouse.cars.vehicles.forEach(vehicle => { 
@@ -43,6 +36,7 @@ export class VehiclesComponent implements OnInit {
   }
 
   openModal(template: TemplateRef<any>, vehicle: Vehicle, warehouse: Warehouse) {  
+    //assign vehicle and warehouse to modal when it's opened
     this.modalRef = this.modalService.show(ModalContentComponent);
     this.modalRef.content.closeBtnName = 'Close';
     this.modalRef.content.vehicle = vehicle;
@@ -51,6 +45,10 @@ export class VehiclesComponent implements OnInit {
 
   addToCart(vehicle: Vehicle) {
     this.cartService.addVehicle(vehicle);
+  }
+
+  removeToCart(vehicle: Vehicle) {
+    this.cartService.removeVehicle(vehicle);
   }
 }
 

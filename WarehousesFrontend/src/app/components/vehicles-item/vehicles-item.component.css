@@ -57,9 +57,20 @@ button.disabled{
 }
 
 button{
+    background-color:burlywood!important;
+    border-color: burlywood;
+    margin-top:25px;
+}
+
+.button-add-to-cart {
     background-color:greenyellow!important;
     border-color: greenyellow;
-    margin-top:25px;
+}
+
+.button-remove-to-cart {
+    background-color:red!important;
+    border-color: red;
+    float:right;
 }
 
 .button-add-to-cart{
@@ -88,5 +99,12 @@ button{
     }
     .additional-section{
         min-width: 100%;
+    }
+}
+
+@media only screen and (max-width: 420px) {
+    .button-remove-to-cart{
+        display: block;
+        float:none;
     }
 }

@@ -1,0 +1,17 @@
+.cart-item .cart-wrapper .price{
+    display: inline;
+    float: right;
+}
+
+.cart-item .cart-wrapper .model{
+    display: inline;
+}
+
+.cart-item {
+    border: 1px solid green;
+    margin-bottom: 10px;
+}
+
+.cart-wrapper {
+    margin: 10px;
+}

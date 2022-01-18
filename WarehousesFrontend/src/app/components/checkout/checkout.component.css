@@ -1,0 +1,19 @@
+.body-spacing{
+    display: block;
+    margin-right: auto;
+    margin-left: auto;
+    width: 100%;
+    max-width: 67.5em;
+    padding-top: 10px;
+}
+
+.checkout-right-section {
+    border-left: 2px solid white;
+}
+
+.btn-checkout {
+    background-color:greenyellow!important;
+    border-color: greenyellow;
+    color: black;
+    float: right;
+}

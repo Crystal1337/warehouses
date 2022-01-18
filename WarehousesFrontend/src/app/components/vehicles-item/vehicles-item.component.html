@@ -19,7 +19,8 @@
               </div>
               <button type="button" class="btn btn-primary" *ngIf="vehicle.licensed" (click)="onClick(vehicle, warehouse)">Show details</button>
               <button type="button" class="btn btn-primary disabled" *ngIf="!vehicle.licensed">Show details</button>
-              <button type="button" class="btn btn-secondary button-add-to-cart" *ngIf="vehicle.licensed && !inCart" (click)="onClickCart(vehicle)">Add to cart</button>
-              <button type="button" class="btn btn-secondary disabled button-add-to-cart" *ngIf="!vehicle.licensed || inCart">Add to cart</button>
+              <button type="button" class="btn btn-secondary button-add-to-cart" *ngIf="vehicle.licensed && !inCart" (click)="onAddCart(vehicle)">Add to cart</button>
+              <button type="button" class="btn btn-secondary disabled button-add-to-cart" *ngIf="!vehicle.licensed">Add to cart</button>
+              <button type="button" class="btn btn-secondary button-remove-to-cart" *ngIf="inCart" (click)="onRemoveCart(vehicle)">Remove from cart</button>
             </div>
         </div>

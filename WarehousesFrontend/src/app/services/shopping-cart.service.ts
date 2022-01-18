@@ -22,8 +22,19 @@ export class ShoppingCartService {
   addVehicle(vehicle: Vehicle) {
     this.cart.vehicles.push(vehicle);
     this.cart.amount += vehicle.price;
-    sessionStorage.removeItem("cart");
+
     sessionStorage.setItem("cart", JSON.stringify(this.cart));
+  }
+
+  removeVehicle(vehicle: Vehicle) {
+    this.cart.vehicles = this.cart.vehicles.filter(e=> e.id !== vehicle.id);
+    this.cart.amount -= vehicle.price;
+    console.log(this.cart);
+    sessionStorage.setItem("cart", JSON.stringify(this.cart));
+  }
+
+  InCart(vehicle?: Vehicle) {
+    return this.cart.vehicles.some(item => item.id === vehicle?.id);
   }
 }
 

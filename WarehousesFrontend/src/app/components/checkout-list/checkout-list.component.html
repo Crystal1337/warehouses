@@ -1,0 +1,6 @@
+<div *ngIf="cart">
+    <app-checkout-item
+    *ngFor="let item of cart.vehicles" [item]="item"
+    >
+    </app-checkout-item>
+</div>

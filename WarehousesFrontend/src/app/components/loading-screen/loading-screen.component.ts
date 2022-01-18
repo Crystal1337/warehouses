@@ -1,5 +1,4 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { BrowserDynamicTestingModule } from '@angular/platform-browser-dynamic/testing';
 
 @Component({
   selector: 'app-loading-screen',
