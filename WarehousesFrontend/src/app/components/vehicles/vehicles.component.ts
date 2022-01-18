@@ -1,5 +1,5 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { Component, OnInit, TemplateRef } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output, TemplateRef } from '@angular/core';
 import { Vehicle } from 'src/app/models/Vehicle';
 import { environment } from 'src/environments/environment';
 import { filter } from 'rxjs/operators';
@@ -10,6 +10,8 @@ import { Warehouse } from 'src/app/models/Warehouse';
 import { Cars } from 'src/app/models/Cars';
 import { BsModalService, BsModalRef, ModalOptions } from 'ngx-bootstrap/modal';
 import { VehicleDetailed } from 'src/app/models/VehicleDetailed';
+import { ShoppingCartService } from 'src/app/services/shopping-cart.service';
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-vehicles',
   templateUrl: './vehicles.component.html',
@@ -21,8 +23,9 @@ import { VehicleDetailed } from 'src/app/models/VehicleDetailed';
 export class VehiclesComponent implements OnInit {
   modalRef?: BsModalRef;
   detailed: VehicleDetailed[] = [];
+  cart: Vehicle[] = [];
 
-  constructor(private vehicleService: VehicleService, private modalService: BsModalService) { 
+  constructor(private vehicleService: VehicleService, private modalService: BsModalService, private cartService: ShoppingCartService, private router: Router) { 
     
   }
 
@@ -46,6 +49,9 @@ export class VehiclesComponent implements OnInit {
     this.modalRef.content.warehouse = warehouse;
   }
 
+  addToCart(vehicle: Vehicle) {
+    this.cartService.addVehicle(vehicle);
+  }
 }
 
 @Component({
@@ -71,7 +77,6 @@ export class VehiclesComponent implements OnInit {
       </div>
       
     </div>
-    
     </div>
 
   `
@@ -79,12 +84,13 @@ export class VehiclesComponent implements OnInit {
 
 export class ModalContentComponent implements OnInit {
   closeBtnName?: string;
-  vehicle?: Vehicle;
   warehouse?: Warehouse;
-
+  vehicle?: Vehicle;
+  
   constructor(public bsModalRef: BsModalRef) {}
  
   ngOnInit() {
     
   }
+
 }

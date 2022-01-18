@@ -13,6 +13,16 @@
           <a class="nav-link" href="carlist">Car list</a>
         </li>
       </ul>
+      <div class="shopping-cart-wrapper" *ngIf="!hasRoute('/')">
+        <div class="shopping-cart" (click)="redirect()">
+          <div class="shopping-amount">
+            {{cart.vehicles.length}}
+          </div>
+          <fa-icon [icon]="faCart" size="2x"></fa-icon>
+          <div class="shopping-price">{{(cart.amount).toFixed(2)}}$</div>
+        </div>
+      </div>
+              
     </div>
   </nav>
 </div>

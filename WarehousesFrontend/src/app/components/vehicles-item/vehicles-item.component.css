@@ -59,7 +59,11 @@ button.disabled{
 button{
     background-color:greenyellow!important;
     border-color: greenyellow;
-    margin-top:15px;
+    margin-top:25px;
+}
+
+.button-add-to-cart{
+    float:right;
 }
 
 @media only screen and (max-width: 850px) {

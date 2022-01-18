@@ -5,6 +5,7 @@
         <app-vehicles-item
         *ngFor="let details of detailed" [vehicle]="details.vehicle" [warehouse]="details.warehouse"
         (onClickVehicle)="openModal(template, details.vehicle, details.warehouse)"
+        (onClickAddToCart)="addToCart(details.vehicle)"
         >
     </app-vehicles-item> 
         

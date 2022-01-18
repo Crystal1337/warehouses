@@ -19,3 +19,30 @@
     left: 0;
     z-index: 1030;
 }
+
+.shopping-cart{
+    cursor: pointer;
+}
+
+.shopping-price{
+    display: inline;
+    position: absolute;
+    margin-left: 10px;
+}
+
+.shopping-amount{
+    position: absolute;
+    top: -10px;
+    left: -10px;
+}
+
+.shopping-cart-wrapper{
+    position: absolute;
+    right: 140px;
+}
+
+@media only screen and (max-width: 575px) {
+    .shopping-cart-wrapper{
+        top: 60%;
+    }
+    }

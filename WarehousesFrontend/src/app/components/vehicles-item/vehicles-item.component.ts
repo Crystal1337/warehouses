@@ -11,8 +11,9 @@ import { Warehouse } from 'src/app/models/Warehouse';
 export class VehiclesItemComponent implements OnInit {
   @Input() vehicle?: Vehicle;
   @Input() warehouse?: Warehouse;
-
+  inCart: boolean = false;
   @Output() onClickVehicle: EventEmitter<object> = new EventEmitter;
+  @Output() onClickAddToCart: EventEmitter<Vehicle> = new EventEmitter;
 
   constructor(private modalService: BsModalService) { }
 
@@ -21,6 +22,11 @@ export class VehiclesItemComponent implements OnInit {
 
   onClick(vehicle: Vehicle, warehouse: Warehouse){
     this.onClickVehicle.emit({vehicle: vehicle ,warehouse: warehouse});
+  }
+
+  onClickCart(vehicle: Vehicle) {
+    this.onClickAddToCart.emit(vehicle);
+    this.inCart = !this.inCart;
   }
 
 }

@@ -14,10 +14,12 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { VehiclesComponent } from './components/vehicles/vehicles.component';
 import { LoadingScreenComponent } from './components/loading-screen/loading-screen.component';
 import { VehiclesItemComponent } from './components/vehicles-item/vehicles-item.component';
+import { CheckoutComponent } from './components/checkout/checkout.component';
 
 const appRoutes: Routes = [
   {path: '', component: LandingPageComponent},
   {path: 'carlist', component: VehiclesComponent},
+  {path: 'checkout', component: CheckoutComponent},
 ]
 
 @NgModule({
@@ -28,6 +30,7 @@ const appRoutes: Routes = [
     VehiclesComponent,
     LoadingScreenComponent,
     VehiclesItemComponent,
+    CheckoutComponent,
   ],
   imports: [
     BrowserModule, 
