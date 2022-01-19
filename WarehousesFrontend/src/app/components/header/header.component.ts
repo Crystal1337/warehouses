@@ -21,7 +21,7 @@ export class HeaderComponent implements OnInit {
   }
 
   redirectToCheckout() {
-    location.href="checkout";
+    this.router.navigateByUrl('checkout');
   }
 
   hasRoute(route: string) {

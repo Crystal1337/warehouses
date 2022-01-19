@@ -81,7 +81,6 @@ export class VehiclesComponent implements OnInit {
 })
 
 export class ModalContentComponent implements OnInit {
-  closeBtnName?: string;
   warehouse?: Warehouse;
   vehicle?: Vehicle;
   
