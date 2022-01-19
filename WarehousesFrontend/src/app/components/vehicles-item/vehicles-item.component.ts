@@ -1,6 +1,5 @@
 import { Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import { Vehicle } from 'src/app/models/Vehicle';
-import { BsModalService, BsModalRef } from 'ngx-bootstrap/modal';
 import { Warehouse } from 'src/app/models/Warehouse';
 import { ShoppingCartService } from 'src/app/services/shopping-cart.service';
 import { VehicleDetailed } from 'src/app/models/VehicleDetailed';
@@ -16,12 +15,12 @@ export class VehiclesItemComponent implements OnInit {
   @Output() onClickVehicle: EventEmitter<VehicleDetailed> = new EventEmitter;
   @Output() onClickAddToCart: EventEmitter<Vehicle> = new EventEmitter;
   @Output() onClickRemoveToCart: EventEmitter<Vehicle> = new EventEmitter;
-  inCart?: boolean = false;
+  inCart: boolean = false;
 
   constructor(private cartService: ShoppingCartService) { }
 
   ngOnInit(): void {
-    this.isInCart(this.vehicle);
+      this.isInCart(this.vehicle);
   }
 
   onClick(vehicle: Vehicle, warehouse: Warehouse){

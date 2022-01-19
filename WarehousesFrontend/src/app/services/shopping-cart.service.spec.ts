@@ -1,7 +1,6 @@
 import { TestBed } from '@angular/core/testing';
 import { Cart } from '../models/Cart';
 import { Vehicle } from '../models/Vehicle';
-
 import { ShoppingCartService } from './shopping-cart.service';
 
 describe('ShoppingCartService', () => {
@@ -138,6 +137,6 @@ describe('ShoppingCartService', () => {
       "date_Added": "2018-01-29"
     }
     expect(service.InCart(checkVehicle)).toEqual(true);
-  })
+  });
 
 });

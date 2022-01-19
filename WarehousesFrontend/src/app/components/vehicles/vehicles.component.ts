@@ -1,8 +1,8 @@
-import { Component, EventEmitter, Input, OnInit, Output, TemplateRef } from '@angular/core';
+import { Component, OnInit, TemplateRef } from '@angular/core';
 import { Vehicle } from 'src/app/models/Vehicle';
 import { VehicleService } from 'src/app/services/vehicle.service';
 import { Warehouse } from 'src/app/models/Warehouse';
-import { BsModalService, BsModalRef, ModalOptions } from 'ngx-bootstrap/modal';
+import { BsModalService, BsModalRef } from 'ngx-bootstrap/modal';
 import { VehicleDetailed } from 'src/app/models/VehicleDetailed';
 import { ShoppingCartService } from 'src/app/services/shopping-cart.service';
 import { Router } from '@angular/router';
@@ -32,13 +32,12 @@ export class VehiclesComponent implements OnInit {
         this.detailed.sort((a:VehicleDetailed, b:VehicleDetailed) => ((new Date(a.vehicle.date_Added).getTime() - new Date(b.vehicle.date_Added).getTime())));
       });
       
-      
+      window.scrollTo(0,0);
   }
 
   openModal(template: TemplateRef<any>, vehicle: Vehicle, warehouse: Warehouse) {  
     //assign vehicle and warehouse to modal when it's opened
     this.modalRef = this.modalService.show(ModalContentComponent);
-    this.modalRef.content.closeBtnName = 'Close';
     this.modalRef.content.vehicle = vehicle;
     this.modalRef.content.warehouse = warehouse;
   }
@@ -53,7 +52,6 @@ export class VehiclesComponent implements OnInit {
 }
 
 @Component({
-  // eslint-disable-next-line @angular-eslint/component-selector
   selector: 'modal-content',
   template: `
     <div class="modal-body">
@@ -79,7 +77,6 @@ export class VehiclesComponent implements OnInit {
 
   `
 })
-
 export class ModalContentComponent implements OnInit {
   warehouse?: Warehouse;
   vehicle?: Vehicle;

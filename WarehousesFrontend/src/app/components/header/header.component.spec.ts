@@ -1,6 +1,5 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { Router } from '@angular/router';
-import { Cart } from 'src/app/models/Cart';
 import { ShoppingCartService } from 'src/app/services/shopping-cart.service';
 import { HeaderComponent } from './header.component';
 

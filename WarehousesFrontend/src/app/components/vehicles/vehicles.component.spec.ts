@@ -1,14 +1,24 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { ModalContentComponent, VehiclesComponent } from './vehicles.component';
+import { VehiclesComponent } from './vehicles.component';
 import { ShoppingCartService } from 'src/app/services/shopping-cart.service';
 import { VehicleService } from 'src/app/services/vehicle.service';
 import { Observable, of } from 'rxjs';
 import { Warehouse } from 'src/app/models/Warehouse';
 import { BsModalService } from 'ngx-bootstrap/modal';
 import { Router } from '@angular/router';
+import { Vehicle } from 'src/app/models/Vehicle';
+import { Cart } from 'src/app/models/Cart';
 
 describe('VehiclesComponent', () => {
+    let vehicle: Vehicle = {
+      "id": 19,
+      "make": "Dodge",
+      "model": "Ram 1500",
+      "year": 2004,
+      "price": 9977.65,
+      "licensed": true,
+      "date_Added": "2018-01-18"
+    }
     let component: VehiclesComponent;
     let fixture: ComponentFixture<VehiclesComponent>;
     
@@ -199,12 +209,21 @@ describe('VehiclesComponent', () => {
       }
   }]
     let vehicleService: VehicleService;
-    let modalService: BsModalService;
-    let modalComponent: ModalContentComponent;
-
+    let cartService: ShoppingCartService;
+    let tmpCart: Cart = {vehicles: [], amount: 0};
+    
     let cartServiceStub: Partial<ShoppingCartService> = {
       getCart: function(){
-        return {vehicles: [], amount: 0}
+        return tmpCart;
+      },
+      addVehicle: function(vehicle: Vehicle){
+        tmpCart.vehicles.push(vehicle);
+        tmpCart.amount += vehicle.price;
+      },
+      removeVehicle: function(vehicle: Vehicle){
+        tmpCart.vehicles = tmpCart.vehicles.filter(e=> e.id !== vehicle.id);
+        tmpCart.amount -= vehicle.price;
+        if(tmpCart.vehicles.length == 0) { tmpCart.amount = 0}
       }
     };
 
@@ -231,24 +250,38 @@ describe('VehiclesComponent', () => {
           {provide: ShoppingCartService, useValue: cartServiceStub},
           {provide: VehicleService, useValue: vehicleServiceStub},
           {provide: BsModalService, useValue: modalServiceStub},
-          {provide: Router, useValue: {url: "checkout"}}
+          {provide: Router, useValue: {url: "checkout"}},
         ]
       })
+      
       fixture = TestBed.createComponent(VehiclesComponent);
       component = fixture.componentInstance;
       vehicleService = TestBed.inject(VehicleService);
-      modalService = TestBed.inject(BsModalService);
-      
+      cartService = TestBed.inject(ShoppingCartService);
       fixture.detectChanges();
     });
   
     it('should create', () => {
       expect(component).toBeTruthy();
-      
     });
 
-    it('bruh', () => {
+    it('it should all results from database after suscribing to observable', () => {
       vehicleService.getVehicles().subscribe(result => expect(result).toBe(warehouse));
+    });
+    
+    it('it should return 1 vehicle and its amount after adding 1 vehicle to empty cart', () => {
+      tmpCart = {vehicles: [], amount: 0}
+      component.addToCart(vehicle);
+      expect(cartService.getCart().vehicles.length).toEqual(1);
+      expect(cartService.getCart().amount).toEqual(9977.65);
+    });
+
+    it('it should return 0 vehicles and 0 amount after adding 1 and later removing vehicle to empty cart', () => {
+      tmpCart = {vehicles: [], amount: 0}
+      component.addToCart(vehicle);
+      component.removeToCart(vehicle);
+      expect(cartService.getCart().vehicles.length).toEqual(0);
+      expect(cartService.getCart().amount).toEqual(0);
     });
     
 });

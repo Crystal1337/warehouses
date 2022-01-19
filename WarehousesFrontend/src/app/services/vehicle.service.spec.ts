@@ -1,6 +1,4 @@
-import { TestBed } from '@angular/core/testing';
 import { Warehouse } from '../models/Warehouse';
-import { HttpClientTestingModule } from '@angular/common/http/testing'
 import { VehicleService } from './vehicle.service';
 import { HttpClient, HttpParams } from '@angular/common/http';
 import { of } from 'rxjs';

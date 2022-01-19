@@ -1,9 +1,10 @@
-import { DebugElement, ViewEncapsulation } from '@angular/core';
+import { DebugElement } from '@angular/core';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { By } from '@angular/platform-browser';
 import { Vehicle } from 'src/app/models/Vehicle';
 import { VehicleDetailed } from 'src/app/models/VehicleDetailed';
 import { Warehouse } from 'src/app/models/Warehouse';
+import { ShoppingCartService } from 'src/app/services/shopping-cart.service';
 
 import { VehiclesItemComponent } from './vehicles-item.component';
 
