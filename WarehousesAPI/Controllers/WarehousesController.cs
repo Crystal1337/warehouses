@@ -24,7 +24,7 @@ namespace WarehousesAPI.Controllers
         {
             _context = context;
         }
-        // [ApiKeyAuth]
+        [ApiKeyAuth]
         [HttpGet]
         public async Task<ActionResult<List<Warehouse>>> GetWarehouses()
         {
@@ -42,7 +42,7 @@ namespace WarehousesAPI.Controllers
         }
 
         //helper function - not needed in final project
-        
+        [ApiKeyAuth]
         [Route("jsonFillTables")]
         [HttpGet]
         public void FillTablesFromJSON()
